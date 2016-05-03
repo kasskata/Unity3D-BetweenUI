@@ -5,17 +5,17 @@ Extremely fast on mobile applications. Without animation controllers for simple 
 
 ### Type of BetweenUI transitions
 ##### BetweenAlpha: 
-      Manipulate Alpha of Graphic element.
+Manipulate Alpha of Graphic element.
 ##### BetweenColor: 
-      Manipulate RGB of the Graphic element.
+Manipulate RGB of the Graphic element.
 ##### BetweenPosition: 
-      Transit the object from one local Vector3 To another.
+Transit the object from one local Vector3 To another.
 ##### BetweenRotation: 
-      Transit the object's rotation from one angle represent in Vector3 to another.
+Transit the object's rotation from one angle represent in Vector3 to another.
 ##### BetweenScale: 
-      Transit the object's local scale from one Vector3 to another.
+Transit the object's local scale from one Vector3 to another.
 ##### BetweenTransform: 
-      Transit from one GameObject's position, rotation, scale to another GameObject and its given position, rotation, scale.
+Transit from one GameObject's position, rotation, scale to another GameObject and its given position, rotation, scale.
 ##### BetweenBase: 
-      With base class can implement more and new components, to use variables and clocks of the base class. See BetweenSprites.cs
+With base class can implement more and new components, to use variables and clocks of the base class. See BetweenSprites.cs
       //TODO: more documentation
