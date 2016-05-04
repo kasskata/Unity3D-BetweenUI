@@ -1,7 +1,6 @@
 # BetweenUI
 
-Mobile platform oriented simple plugin for Unity3D version 4.6+. Transform fast easy UI elements from Canvas hierarhy.
-Extremely fast on mobile applications. Without animation controllers for simple transitions. Without necesery layers of code file.
+Mobile platform oriented simple plugin for Unity3D version 4.6+. UI transitions will be fast easy from Canvas hierarchy. Extremely fast on mobile applications. Without animation controllers for simple transitions. Without necessary layers of code files.
 
 ### Type of BetweenUI transitions
 ##### BetweenAlpha: 
