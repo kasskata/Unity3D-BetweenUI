@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 
+// Main scene manager script. Here you can see complex animations only with Between UI.
 public class SceneOneDemo : MonoBehaviour
 {
-    private static readonly Color WhiteWithoutAlpha = new Color32(255, 225, 255, 0);
+    private static readonly Color WhiteTransperant = new Color32(255, 225, 255, 0);
 
     public BetweenSprites HedgehogTransit;
     public BetweenSprites SquirelTransit;
@@ -26,18 +26,21 @@ public class SceneOneDemo : MonoBehaviour
 
     private int loopHedgehogCounter;
 
+    // Clean other sprites from the animation stream and loop only 3 sprite with the hedgehog's hand.
+    // That method is attached OnFinish on sprite's transition ends.
     public void OnHedgehogLoopEnter()
     {
         if (this.HedgehogTransit.Sprites.Length > 3)
         {
             this.HedgehogTransit.Sprites = new[]
             {
-            this.HedgehogTransit.Sprites[this.HedgehogTransit.Sprites.Length-1],
-            this.HedgehogTransit.Sprites[this.HedgehogTransit.Sprites.Length-2],
-            this.HedgehogTransit.Sprites[this.HedgehogTransit.Sprites.Length-3]
+                this.HedgehogTransit.Sprites[this.HedgehogTransit.Sprites.Length-1],
+                this.HedgehogTransit.Sprites[this.HedgehogTransit.Sprites.Length-2],
+                this.HedgehogTransit.Sprites[this.HedgehogTransit.Sprites.Length-3]
             };
         }
 
+        // That's the way how to adjust duration of the transition
         this.HedgehogTransit.Duration = 1.2f;
         this.HedgehogTransit.ResetToBeginning();
         this.HedgehogTransit.PlayForward();
@@ -50,11 +53,12 @@ public class SceneOneDemo : MonoBehaviour
         }
     }
 
+    // This method is attached on Second screen finish property. Activate all other transitions after the heroes appears.
     public void OnSecondScreenFinish()
     {
         //Example how easy change the values of the From/To variables.
         //On reverse transition just change dinamically colors.
-        this.SecondScreenTransit.From = WhiteWithoutAlpha;
+        this.SecondScreenTransit.From = WhiteTransperant;
         this.SecondScreenTransit.PlayReverse();
 
         this.ColoredTitleTransit.PlayForward();
@@ -72,8 +76,10 @@ public class SceneOneDemo : MonoBehaviour
 
     }
 
+    // Attached to the Title texture and rotate randomly on finish of the transition.
     public void RandomRotateTitle()
     {
+        // You have full access on From/To properties dynamically every time you need of the transitions.
         Vector2 newRotation = new Vector2(
                 Random.Range(-20f, 20f),
                 Random.Range(-20f, 20f)
@@ -89,6 +95,9 @@ public class SceneOneDemo : MonoBehaviour
             this.ColoredTitleRotationTransit.To = newRotation;
         }
 
+        // After new callibration just play animation. Note that Active property is for check whether when your transition is in ease. 
+        // Active == false means not played and its's in ease. You can PlayForward()
+        // Active == true means is play/played and its's in some tween factor. You can PlayReverse() then to reverse it.
         this.ColoredTitleRotationTransit.Play(!this.ColoredTitleRotationTransit.Active);
     }
 
@@ -96,10 +105,5 @@ public class SceneOneDemo : MonoBehaviour
     {
         this.SplashScreen.PlayReverse();
         this.LoadingBackground.SetActive(true);
-    }
-
-    public void GoToMenuScene()
-    {
-        SceneManager.LoadSceneAsync("Scene2-MainMenu");
     }
 }

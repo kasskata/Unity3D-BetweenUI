@@ -3,7 +3,7 @@
 /// <summary>
 /// Transition position.
 /// </summary>
-[AddComponentMenu("CTransitions/BetweenPosition")]
+[AddComponentMenu("CTransitions/Position")]
 public class BetweenPosition : BetweenBase
 {
     public Vector3 From;

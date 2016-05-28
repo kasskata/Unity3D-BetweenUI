@@ -1,36 +1,66 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Switch button effect like Android/Iphone menu UI
+/// </summary>
+[AddComponentMenu("BetweenUI/Extra/Switcher")]
 public class SwitchButton : MonoBehaviour
 {
-    public bool isOn;
+    /// <summary>
+    /// Check whether of the switch.
+    /// </summary>
+    public bool IsOn;
 
+    /// <summary>
+    /// New On state color of the background.
+    /// </summary>
     [Header("ON State")]
     public Color32 Background = Color.white;
+
+    /// <summary>
+    /// New On state color of the thumb.
+    /// </summary>
     public Color32 Thumb = Color.white;
 
-    public BetweenColor thumbColorTrans;
-    public BetweenColor backgroundColorTrans;
-    public BetweenPosition positionThumbTween;
+    /// <summary>
+    /// BetweenUI background transition.
+    /// </summary>
+    public BetweenColor BackgroundColorTrans;
+
+    /// <summary>
+    /// BetweenUI thumb transition.
+    /// </summary>
+    public BetweenColor ThumbColorTween;
+
+    /// <summary>
+    /// BetweenUI Thumb position transition.
+    /// </summary>
+    public BetweenPosition PositionThumbTween;
 
 
     private void Start()
     {
         //From
-        this.backgroundColorTrans.From = this.backgroundColorTrans.GetComponent<Graphic>().color;
-        this.thumbColorTrans.From = this.thumbColorTrans.GetComponent<Graphic>().color;
+        this.BackgroundColorTrans.From = this.BackgroundColorTrans.GetComponent<Graphic>().color;
+        this.ThumbColorTween.From = this.ThumbColorTween.GetComponent<Graphic>().color;
+        
         //To
-        this.backgroundColorTrans.To = this.Background;
-        this.thumbColorTrans.To = this.Thumb;
+        this.BackgroundColorTrans.To = this.Background;
+        this.ThumbColorTween.To = this.Thumb;
+        
         //Prepare trans positions to be on the half of the button's background width
-        float positionX = this.backgroundColorTrans.GetComponent<RectTransform>().sizeDelta.x / 2;
-        this.positionThumbTween.From.x = -positionX;
-        this.positionThumbTween.To.x = positionX;
+        float positionX = this.BackgroundColorTrans.GetComponent<RectTransform>().sizeDelta.x / 2;
+        this.PositionThumbTween.From.x = -positionX;
+        this.PositionThumbTween.To.x = positionX;
     }
 
+    /// <summary>
+    /// Switch State On/Off
+    /// </summary>
     public void ChangeState()
     {
-        if (this.isOn)
+        if (this.IsOn)
         {
             Off();
         }
@@ -42,17 +72,17 @@ public class SwitchButton : MonoBehaviour
 
     public void On()
     {
-        this.isOn = true;
-        this.backgroundColorTrans.PlayForward();
-        this.thumbColorTrans.PlayForward();
-        this.positionThumbTween.PlayForward();
+        this.IsOn = true;
+        this.BackgroundColorTrans.PlayForward();
+        this.ThumbColorTween.PlayForward();
+        this.PositionThumbTween.PlayForward();
     }
 
     public void Off()
     {
-        this.isOn = false;
-        this.backgroundColorTrans.PlayReverse();
-        this.thumbColorTrans.PlayReverse();
-        this.positionThumbTween.PlayReverse();
+        this.IsOn = false;
+        this.BackgroundColorTrans.PlayReverse();
+        this.ThumbColorTween.PlayReverse();
+        this.PositionThumbTween.PlayReverse();
     }
 }

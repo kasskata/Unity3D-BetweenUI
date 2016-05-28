@@ -1,20 +1,37 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Rotate the items for select character part.
+/// </summary>
 public class PartsRotator : MonoBehaviour
 {
+    /// <summary>
+    /// First object which will transit from one to another container.
+    /// </summary>
     public BetweenTransform FirstObjectTween;
+
+    /// <summary>
+    /// Second object which will transit from one to another container.
+    /// </summary>
     public BetweenTransform SecondObjectTween;
 
+    // Points for rotate.
     public Transform MiddlePoint;
     public Transform StartPoint;
     public Transform EndPoint;
 
+    // Check when first or second item is in the middle right now.
     private bool isFirstInMiddle = true;
     private bool isSecondInMiddle;
 
+    // Images to change the hero appearance.
     private Image firstItemImage;
     private Image secondItemImage;
+
+    /// <summary>
+    /// Slower effect for the items when is gone from the scene.
+    /// </summary>
     private const float NormalDuration = 0.4f;
     private const float FastDuration = 0.25f;
 
@@ -105,6 +122,10 @@ public class PartsRotator : MonoBehaviour
         this.secondItemImage = this.SecondObjectTween.GetComponent<Image>();
     }
 
+    /// <summary>
+    /// Change Color of the item.
+    /// </summary>
+    /// <returns>randomed color</returns>
     private Color32 GetRandomColor()
     {
         return new Color32(

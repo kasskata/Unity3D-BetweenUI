@@ -3,7 +3,7 @@
 /// <summary>
 /// Transit the object's position, rotation and scale.
 /// </summary>
-[AddComponentMenu("BetweenUI/BetweenTransform")]
+[AddComponentMenu("BetweenUI/Transform")]
 public class BetweenTransform : BetweenBase
 {
     public Transform From;

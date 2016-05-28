@@ -5,7 +5,7 @@ using UnityEngine.UI;
 /// Transition graphic color.
 /// </summary>
 [RequireComponent(typeof(Graphic))]
-[AddComponentMenu("BetweenUI/BetweenColor")]
+[AddComponentMenu("BetweenUI/Color")]
 public class BetweenColor : BetweenBase
 {
     public Color From = Color.white;

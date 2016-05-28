@@ -3,7 +3,7 @@
 /// <summary>
 /// Rotate the object's local Rotation.
 /// </summary>
-[AddComponentMenu("BetweenUI/BetweenRotation")]
+[AddComponentMenu("BetweenUI/Rotation")]
 public class BetweenRotation : BetweenBase
 {
     public Vector3 From;

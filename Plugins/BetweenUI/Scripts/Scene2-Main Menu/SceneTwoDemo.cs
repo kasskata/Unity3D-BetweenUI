@@ -1,51 +1,54 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Main script for Scene Two: Main Menu
+/// </summary>
 public class SceneTwoDemo : MonoBehaviour
 {
-    public BetweenPosition mainMenuTransit;
-    public BetweenPosition characterTransit;
-    public BetweenAlpha characterAlphaTransit;
-    public BetweenPosition bottomTransit;
-    public BetweenPosition protfileTransit;
+    public BetweenPosition MainMenuTransit;
+    public BetweenPosition CharacterTransit;
+    public BetweenAlpha CharacterAlphaTransit;
+    public BetweenPosition BottomTransit;
+    public BetweenPosition ProfileTransit;
 
     public void OnCharacterClicked()
     {
-        this.mainMenuTransit.PlayReverse();
+        this.MainMenuTransit.PlayReverse();
 
         OpenCharacterPanel();
     }
 
     public void OnCharacterDoneClicked()
     {
-        this.mainMenuTransit.PlayForward();
+        this.MainMenuTransit.PlayForward();
 
         CloseCharacterPanel();
     }
 
     private void CloseCharacterPanel()
     {
-        this.characterTransit.PlayReverse();
-        this.characterAlphaTransit.PlayReverse();
-        this.bottomTransit.PlayReverse();
+        this.CharacterTransit.PlayReverse();
+        this.CharacterAlphaTransit.PlayReverse();
+        this.BottomTransit.PlayReverse();
     }
 
     private void OpenCharacterPanel()
     {
-        this.characterTransit.PlayForward();
-        this.characterAlphaTransit.PlayForward();
-        this.bottomTransit.PlayForward();
+        this.CharacterTransit.PlayForward();
+        this.CharacterAlphaTransit.PlayForward();
+        this.BottomTransit.PlayForward();
     }
 
     public void OnProfileClicked()
     {
-        this.protfileTransit.PlayForward();
-        this.mainMenuTransit.PlayReverse();
+        this.ProfileTransit.PlayForward();
+        this.MainMenuTransit.PlayReverse();
     }
 
     public void OnProfileDoneClicked()
     {
-        this.protfileTransit.PlayReverse();
-        this.mainMenuTransit.PlayForward();
+        this.ProfileTransit.PlayReverse();
+        this.MainMenuTransit.PlayForward();
     }
 
     public void StopColorTransit(BetweenBase transitionObject)

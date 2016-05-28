@@ -3,33 +3,53 @@ using UnityEngine.UI;
 
 public class Dropdown : MonoBehaviour
 {
-    public BetweenScale dropdownScaleTransit;
-    public BetweenAlpha dropdownAlphaTransit;
+    /// <summary>
+    /// Scale the options menu.
+    /// </summary>
+    public BetweenScale DropdownScaleTransit;
+    
+    /// <summary>
+    /// Dropdown alpha element.
+    /// </summary>
+    public BetweenAlpha DropdownAlphaTransit;
 
-    public Text selectedLabel;
+    /// <summary>
+    /// Current selected option from dropdowsn menu.
+    /// </summary>
+    public Text SelectedOption;
 
-    public int selectedItem;
-    public string[] dropdownOptions;
+    /// <summary>
+    /// Selected item from dropdown.
+    /// </summary>
+    public int SelectedItem;
+
+    /// <summary>
+    /// Cached dropdown options.
+    /// </summary>
+    public string[] DropdownOptions;
 
     public void Start()
     {
-        Transform parentDropdown = this.dropdownAlphaTransit.transform;
-        this.dropdownOptions = new string[parentDropdown.childCount];
+        Transform parentDropdown = this.DropdownAlphaTransit.transform;
+        this.DropdownOptions = new string[parentDropdown.childCount];
 
         Transform child;
         for (int i = 0; i < parentDropdown.childCount; i++)
         {
             child = parentDropdown.GetChild(i);
-            this.dropdownOptions[i] = child.GetComponent<Text>().text;
+            this.DropdownOptions[i] = child.GetComponent<Text>().text;
             Button button = child.GetComponent<Button>() ?? child.gameObject.AddComponent<Button>();
             int index = i;
             button.onClick.AddListener(() => Select(index));
         }
     }
 
+    /// <summary>
+    /// Switch options container from the menu.
+    /// </summary>
     public void Switch()
     {
-        if (!this.dropdownAlphaTransit.Active)
+        if (!this.DropdownAlphaTransit.Active)
         {
             Open();
         }
@@ -39,22 +59,32 @@ public class Dropdown : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Open options container.
+    /// </summary>
     public void Open()
     {
-        this.dropdownAlphaTransit.PlayForward();
-        this.dropdownScaleTransit.PlayForward();
+        this.DropdownAlphaTransit.PlayForward();
+        this.DropdownScaleTransit.PlayForward();
     }
 
+    /// <summary>
+    /// Close options container.
+    /// </summary>
     public void Close()
     {
-        this.dropdownAlphaTransit.PlayReverse();
-        this.dropdownScaleTransit.PlayReverse();
+        this.DropdownAlphaTransit.PlayReverse();
+        this.DropdownScaleTransit.PlayReverse();
     }
 
+    /// <summary>
+    /// Select new Option
+    /// </summary>
+    /// <param name="item">The new option index.</param>
     public void Select(int item)
     {
-        this.selectedItem = item;
-        this.selectedLabel.text = this.dropdownOptions[this.selectedItem];
+        this.SelectedItem = item;
+        this.SelectedOption.text = this.DropdownOptions[this.SelectedItem];
         Close();
     }
 }

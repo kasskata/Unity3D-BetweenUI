@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-[AddComponentMenu("BetweenUI/BetweenAlpha")]
+[AddComponentMenu("BetweenUI/Alpha")]
 public class BetweenAlpha : BetweenBase
 {
     [Range(0f, 1f)]
@@ -12,8 +12,8 @@ public class BetweenAlpha : BetweenBase
     private bool isParent;
     private bool cached;
     private CanvasGroup canvasGroup;
-    private Image image;
-    private Color imageAlpha = Color.white;
+    private Graphic graphic;
+    private Color graphicAlpha = Color.white;
 
     private void Cache()
     {
@@ -37,8 +37,8 @@ public class BetweenAlpha : BetweenBase
         }
         else
         {
-            this.image = this.GetComponent<Image>();
-            this.imageAlpha = this.image.color;
+            this.graphic = this.GetComponent<Graphic>();
+            this.graphicAlpha = this.graphic.color;
         }
     }
 
@@ -60,8 +60,8 @@ public class BetweenAlpha : BetweenBase
             }
             else
             {
-                this.imageAlpha.a = value;
-                this.image.color = this.imageAlpha;
+                this.graphicAlpha.a = value;
+                this.graphic.color = this.graphicAlpha;
             }
         }
     }

@@ -3,7 +3,7 @@
 /// <summary>
 /// Transit the object's local scale.
 /// </summary>
-[AddComponentMenu("BetweenUI/BetweenScale")]
+[AddComponentMenu("BetweenUI/Scale")]
 public class BetweenScale : BetweenBase
 {
     public Vector3 From = Vector3.one;
