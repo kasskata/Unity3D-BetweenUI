@@ -19,3 +19,4 @@ Transit from one GameObject's position, rotation, scale to another GameObject an
 With base class can implement more and new components, to use variables and clocks of the base class. See BetweenSprites.cs
       
 ######//TODO: more documentation
+######//TODO: namespaces
