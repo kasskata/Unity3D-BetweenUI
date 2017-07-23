@@ -16,6 +16,16 @@ Transit the object's local scale from one Vector3 to another.
 ##### BetweenTransform: 
 Transit from one GameObject's position, rotation, scale to another GameObject and its given position, rotation, scale.
 ##### BetweenBase: 
-With base class can implement more and new components, to use variables and clocks of the base class. See BetweenSprites.cs
+With base class can implement more and new components, to use variables and clocks of the base class. See BetweenSprites.cs for example.
 
-And a lot others scripts free to use.
+And many others scripts free to use.
+
+##### Editor tools build-in inspector GUI: 
+Reset to beginning: reset transition with start values.
+Reset to end: reset transition with end values.
+
+Set FROM/TO with one click on context menu.
+
+##### Editor live transition.
+Buttons in bottom of every component allows you to debug you transition in editor mode.
+###### ResetToBegining(|◄), PlayReverse(◄), Pause(||), PlayForward(►), ResetToEnd(►|)
