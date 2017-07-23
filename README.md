@@ -17,6 +17,5 @@ Transit the object's local scale from one Vector3 to another.
 Transit from one GameObject's position, rotation, scale to another GameObject and its given position, rotation, scale.
 ##### BetweenBase: 
 With base class can implement more and new components, to use variables and clocks of the base class. See BetweenSprites.cs
-      
-######//TODO: more documentation
-######//TODO: namespaces
+
+And a lot others scripts free to use.
