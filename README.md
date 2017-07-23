@@ -24,7 +24,7 @@ And many others scripts free to use.
 Reset to beginning: reset transition with start values.
 Reset to end: reset transition with end values.
 
-Set FROM/TO with one click on context menu.
+Set FROM/TO with one click from context menu.
 
 ##### Editor live transition.
 Buttons in bottom of every component allows you to debug you transition in editor mode.
